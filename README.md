@@ -4,6 +4,28 @@
 
 Selai (formerly SalesFlow AI) is an **Agentic Sales Dashboard** that flips the traditional sales model. Instead of humans dialing leads, autonomous AI agents dial multiple leads simultaneously. The AI pre-screens the leads, filters out rejections, and only when a lead expresses genuine interest, triggers a **"Warm Live Transfer"** to a human agent waiting on the dashboard.
 
+## 📸 UI Showcase
+
+### 1. The Introductory Experience
+Selai opens with a high-impact **Landing Page** designed to explain the complex technology to non-technical stakeholders. It features:
+*   **Visual Demonstrations:** CSS-based mockups showing the AI "Team", the "Filter", and the "Brain".
+*   **Value Proposition:** Clear explanation of how Selai filters noise and delivers only interested leads.
+*   **One-Click Launch:** Seamless transition from the marketing page to the live dashboard.
+
+![Selai Landing Page](https://via.placeholder.com/800x450/0f172a/e2e8f0?text=Insert+Screenshot+of+Selai+Landing+Page+Here)
+
+### 2. The Command Center
+The heartbeat of the operation. Watch as your AI agents dial, pitch, and negotiate in real-time. Colors indicate status (Yellow: Dialing, Blue: Speaking, Green: Transferring).
+
+![Command Center](https://via.placeholder.com/800x450/0f172a/e2e8f0?text=Insert+Screenshot+of+Command+Center+Here)
+
+### 3. The Active Workspace
+When a human accepts a call, this workspace triggers. It displays the CRM data on the left, the live transcript in the center, and **Gemini's Real-time Analysis** on the right—coaching the user on how to close the deal.
+
+![Active Workspace](https://via.placeholder.com/800x450/0f172a/e2e8f0?text=Insert+Screenshot+of+Active+Workspace+Here)
+
+---
+
 ## 🚀 The Problem
 Traditional outbound sales is broken. Humans waste **90%** of their time listening to dial tones, voicemails, and getting hung up on. It leads to high burnout and low efficiency.
 
