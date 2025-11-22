@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import { BotCard } from './components/BotCard';
 import { TransferModal } from './components/TransferModal';
 import { ActiveCallWorkspace } from './components/ActiveCallWorkspace';
+import { LandingPage } from './components/LandingPage';
 import { useSimulation } from './hooks/useSimulation';
-import { LayoutGrid, Activity, Settings, Phone } from 'lucide-react';
+import { LayoutGrid, Activity, Settings, Phone, Sparkles } from 'lucide-react';
 import { BotAgent } from './types';
 
 function App() {
+  const [showLanding, setShowLanding] = useState(true);
   const { bots, incomingTransfer, acceptTransfer, rejectTransfer } = useSimulation();
   const [activeSessionBot, setActiveSessionBot] = useState<BotAgent | null>(null);
 
@@ -28,6 +30,10 @@ function App() {
     setActiveSessionBot(null);
   };
 
+  if (showLanding) {
+    return <LandingPage onLaunch={() => setShowLanding(false)} />;
+  }
+
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 font-sans selection:bg-indigo-500/30">
       
@@ -36,17 +42,17 @@ function App() {
         <div className="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 bg-indigo-600 rounded-lg flex items-center justify-center shadow-lg shadow-indigo-500/20">
-              <LayoutGrid className="w-5 h-5 text-white" />
+              <Sparkles className="w-5 h-5 text-white" />
             </div>
-            <span className="font-bold text-xl tracking-tight text-white">SalesFlow<span className="text-indigo-400">AI</span></span>
+            <span className="font-bold text-xl tracking-tight text-white">Selai</span>
           </div>
           
           <div className="flex items-center gap-6 text-sm font-medium text-slate-400">
-            <div className="flex items-center gap-2 text-white">
+            <div className="hidden md:flex items-center gap-2 text-white">
               <Activity className="w-4 h-4 text-green-400" />
               <span>System Online</span>
             </div>
-            <div className="h-4 w-px bg-slate-700"></div>
+            <div className="hidden md:block h-4 w-px bg-slate-700"></div>
             <div className="flex items-center gap-2">
               <Phone className="w-4 h-4" />
               <span>4 Agents Active</span>
@@ -62,9 +68,14 @@ function App() {
       {/* Main Dashboard */}
       <main className="max-w-7xl mx-auto px-6 py-8">
         
-        <header className="mb-8">
-          <h1 className="text-2xl font-bold text-white mb-2">Live Transfer Hub</h1>
-          <p className="text-slate-400">Monitoring AI agents. Waiting for qualified leads...</p>
+        <header className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold text-white mb-2">Live Transfer Hub</h1>
+            <p className="text-slate-400">Monitoring AI agents. Waiting for qualified leads...</p>
+          </div>
+          <button onClick={() => setShowLanding(true)} className="text-sm text-slate-500 hover:text-white underline">
+            Back to Home
+          </button>
         </header>
 
         {/* Bot Grid */}
@@ -78,7 +89,7 @@ function App() {
         <div className="mt-12 grid grid-cols-1 lg:grid-cols-3 gap-6">
            <div className="lg:col-span-2 bg-slate-900 rounded-xl border border-slate-800 p-6">
               <h3 className="font-bold text-white mb-4">Campaign Performance (Daily)</h3>
-              <div className="grid grid-cols-4 gap-4 text-center">
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-center">
                  <div className="p-4 bg-slate-950 rounded-lg">
                     <div className="text-2xl font-bold text-white">1,240</div>
                     <div className="text-xs text-slate-500 uppercase mt-1">Dials</div>
