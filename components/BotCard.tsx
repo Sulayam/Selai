@@ -1,6 +1,7 @@
+
 import React from 'react';
 import { BotAgent, BotStatus } from '../types';
-import { Phone, Radio, User, Mic, Volume2, ArrowRightCircle, ShieldCheck } from 'lucide-react';
+import { Phone, Radio, User, Mic, Volume2, ArrowRightCircle, ShieldCheck, BrainCircuit } from 'lucide-react';
 
 interface BotCardProps {
   bot: BotAgent;
@@ -11,6 +12,7 @@ const getStatusColor = (status: BotStatus) => {
     case BotStatus.DIALING: return 'text-yellow-400 border-yellow-400/30 bg-yellow-400/10';
     case BotStatus.PITCHING: return 'text-blue-400 border-blue-400/30 bg-blue-400/10';
     case BotStatus.LISTENING: return 'text-purple-400 border-purple-400/30 bg-purple-400/10';
+    case BotStatus.THINKING: return 'text-indigo-400 border-indigo-400/50 bg-indigo-400/20';
     case BotStatus.TRANSFERRING: return 'text-green-400 border-green-400/50 bg-green-400/20 animate-pulse';
     case BotStatus.IDLE: return 'text-slate-500 border-slate-700 bg-slate-800/50';
     case BotStatus.COOLDOWN: return 'text-orange-500 border-orange-700 bg-orange-900/20';
@@ -35,6 +37,7 @@ export const BotCard: React.FC<BotCardProps> = ({ bot }) => {
           {bot.status === BotStatus.DIALING && <span className="animate-pulse">DIALING...</span>}
           {bot.status === BotStatus.PITCHING && <span className="flex gap-1"><Volume2 className="w-3 h-3" /> SPEAKING</span>}
           {bot.status === BotStatus.LISTENING && <span className="flex gap-1"><Mic className="w-3 h-3" /> LISTENING</span>}
+          {bot.status === BotStatus.THINKING && <span className="flex gap-1 animate-pulse"><BrainCircuit className="w-3 h-3" /> DECIDING...</span>}
           {bot.status === BotStatus.TRANSFERRING && <span className="font-bold">TRANSFER READY</span>}
           {bot.status === BotStatus.IDLE && <span>IDLE</span>}
         </div>
@@ -83,6 +86,11 @@ export const BotCard: React.FC<BotCardProps> = ({ bot }) => {
                  <span className="text-xs font-mono opacity-70">
                    {Math.floor(bot.duration / 60)}:{(bot.duration % 60).toString().padStart(2, '0')}
                  </span>
+             </div>
+         ) : bot.status === BotStatus.THINKING ? (
+             <div className="flex items-center gap-2 justify-center">
+                 <BrainCircuit className="w-5 h-5 animate-spin text-indigo-400" />
+                 <span className="text-xs font-mono text-indigo-300">Analyzing Intent...</span>
              </div>
          ) : bot.status === BotStatus.TRANSFERRING ? (
              <div className="flex items-center justify-center gap-2 text-white font-bold animate-pulse">

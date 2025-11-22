@@ -1,9 +1,11 @@
+
 export enum BotStatus {
   IDLE = 'IDLE',
   DIALING = 'DIALING',
   CONNECTING = 'CONNECTING',
   PITCHING = 'PITCHING',   // AI is speaking
   LISTENING = 'LISTENING', // Lead is speaking
+  THINKING = 'THINKING',   // AI is querying Gemini
   TRANSFERRING = 'TRANSFERRING', // Warm transfer initiated
   COOLDOWN = 'COOLDOWN'
 }
@@ -24,6 +26,12 @@ export interface TranscriptLine {
   timestamp: number;
 }
 
+export interface GeminiAnalysis {
+  summary: string;
+  recommendedStrategy: string;
+  sentiment: 'Positive' | 'Neutral' | 'Skeptical' | 'Urgent';
+}
+
 export interface BotAgent {
   id: number;
   name: string;
@@ -31,11 +39,6 @@ export interface BotAgent {
   currentLead: Lead | null;
   transcript: TranscriptLine[];
   duration: number;
-  callSid?: string; // Mock Twilio Call SID
-}
-
-export interface GeminiAnalysis {
-  summary: string;
-  recommendedStrategy: string;
-  sentiment: 'Positive' | 'Neutral' | 'Skeptical';
+  callSid?: string; 
+  analysis?: GeminiAnalysis | null; // Backend now populates this
 }

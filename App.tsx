@@ -1,22 +1,25 @@
+
 import React, { useState } from 'react';
 import { BotCard } from './components/BotCard';
 import { TransferModal } from './components/TransferModal';
 import { ActiveCallWorkspace } from './components/ActiveCallWorkspace';
 import { LandingPage } from './components/LandingPage';
-import { useSimulation } from './hooks/useSimulation';
-import { LayoutGrid, Activity, Settings, Phone, Sparkles } from 'lucide-react';
+import { useSocket } from './hooks/useSocket';
+import { LayoutGrid, Activity, Settings, Phone, Sparkles, Server, Wifi, WifiOff } from 'lucide-react';
 import { BotAgent } from './types';
 
 function App() {
   const [showLanding, setShowLanding] = useState(true);
-  const { bots, incomingTransfer, acceptTransfer, rejectTransfer } = useSimulation();
+  const { bots, incomingTransfer, acceptTransfer, rejectTransfer, isConnected } = useSocket();
   const [activeSessionBot, setActiveSessionBot] = useState<BotAgent | null>(null);
 
   const handleAccept = () => {
     if (incomingTransfer) {
       const bot = incomingTransfer;
-      acceptTransfer(bot.id); // Logic to clear bot from pool
-      setActiveSessionBot(bot); // Move to active workspace
+      acceptTransfer(bot.id); 
+      // In a real app, backend would return a unique session ID here.
+      // For now, we just take the bot object into the workspace.
+      setActiveSessionBot(bot); 
     }
   };
 
@@ -48,14 +51,14 @@ function App() {
           </div>
           
           <div className="flex items-center gap-6 text-sm font-medium text-slate-400">
-            <div className="hidden md:flex items-center gap-2 text-white">
-              <Activity className="w-4 h-4 text-green-400" />
-              <span>System Online</span>
+            <div className={`flex items-center gap-2 ${isConnected ? 'text-green-400' : 'text-red-400'}`}>
+              {isConnected ? <Wifi className="w-4 h-4" /> : <WifiOff className="w-4 h-4" />}
+              <span>{isConnected ? 'Server Connected' : 'Connecting...'}</span>
             </div>
             <div className="hidden md:block h-4 w-px bg-slate-700"></div>
             <div className="flex items-center gap-2">
-              <Phone className="w-4 h-4" />
-              <span>4 Agents Active</span>
+              <Server className="w-4 h-4" />
+              <span>Orchestrator Active</span>
             </div>
           </div>
 
@@ -68,6 +71,14 @@ function App() {
       {/* Main Dashboard */}
       <main className="max-w-7xl mx-auto px-6 py-8">
         
+        {!isConnected && (
+            <div className="bg-red-500/10 border border-red-500/20 text-red-400 p-4 rounded-lg mb-6 flex items-center gap-3">
+                <WifiOff className="w-5 h-5" />
+                <span className="font-bold">Backend Offline.</span> 
+                <span className="text-sm opacity-80">Please run `npm run server` in your terminal.</span>
+            </div>
+        )}
+
         <header className="mb-8 flex flex-col md:flex-row md:items-end justify-between gap-4">
           <div>
             <h1 className="text-2xl font-bold text-white mb-2">Live Transfer Hub</h1>
@@ -83,6 +94,11 @@ function App() {
           {bots.map(bot => (
             <BotCard key={bot.id} bot={bot} />
           ))}
+          {bots.length === 0 && isConnected && (
+              <div className="col-span-4 text-center py-12 text-slate-500">
+                  Waiting for bot swarm initialization...
+              </div>
+          )}
         </div>
 
         {/* Stats / Bottom Panel */}
