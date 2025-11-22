@@ -4,7 +4,7 @@
 
 Selai (formerly SalesFlow AI) is an **Agentic Sales Dashboard** that flips the traditional sales model. Instead of humans dialing leads, autonomous AI agents dial multiple leads simultaneously. The AI pre-screens the leads, filters out rejections, and only when a lead expresses genuine interest, triggers a **"Warm Live Transfer"** to a human agent waiting on the dashboard.
 
-## 📸 UI Showcase
+## UI Showcase
 
 ### 1. The Introductory Experience
 Selai opens with a high-impact **Landing Page** designed to explain the complex technology to non-technical stakeholders. It features:
@@ -26,17 +26,17 @@ When a human accepts a call, this workspace triggers. It displays the CRM data o
 
 ---
 
-## 🚀 The Problem
+## The Problem
 Traditional outbound sales is broken. Humans waste **90%** of their time listening to dial tones, voicemails, and getting hung up on. It leads to high burnout and low efficiency.
 
-## 💡 The Solution
+## The Solution
 Selai provides a "Command Center" where one human oversees a squad of AI agents.
 1.  **AI Agents Dial:** 4+ bots dial simultaneously.
 2.  **Filter Noise:** Bots handle voicemails and "not interested" responses autonomously.
 3.  **Detect Intent:** When a prospect shows interest (e.g., "Tell me about pricing"), the bot pauses.
 4.  **Warm Transfer:** The human agent gets a pop-up with a summary and takes over the call instantly.
 
-## ✨ Features
+## Features
 
 *   **Visual Command Center:** Real-time grid view of AI agents (Dialing, Pitching, Listening).
 *   **Simulation Engine:** Built-in demo mode mimicking Vapi.ai/Twilio webhooks to demonstrate the workflow without active telephony costs.
@@ -44,14 +44,14 @@ Selai provides a "Command Center" where one human oversees a squad of AI agents.
 *   **Active Call Workspace:** A dedicated UI for the human agent with CRM data, live transcription, and AI coaching tips.
 *   **Landing Page:** A high-conversion entry page explaining the product value.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 *   **Frontend:** React 19, Vite, TypeScript
 *   **Styling:** Tailwind CSS
 *   **AI Intelligence:** Google GenAI SDK (`@google/genai`)
 *   **Icons:** Lucide React
 
-## 🏁 Getting Started
+## Getting Started
 
 ### Prerequisites
 *   Node.js (v18+)
@@ -82,7 +82,7 @@ Selai provides a "Command Center" where one human oversees a squad of AI agents.
     npm run dev
     ```
 
-## 🎮 How to Use (Demo Mode)
+## How to Use (Demo Mode)
 
 1.  **Launch:** Open the app in your browser. You will see the Landing Page.
 2.  **Start Dashboard:** Click "Launch Dashboard".
@@ -91,7 +91,7 @@ Selai provides a "Command Center" where one human oversees a squad of AI agents.
 5.  **Accept Call:** A modal will appear. Click "Accept Transfer".
 6.  **Active Workspace:** You are now in the "Live Call". The text on the right is the transcript. The panel on the left shows **Real Gemini Analysis** of that transcript.
 
-## 🗺️ Roadmap
+## Roadmap
 
 *   [x] Frontend UI & Simulation Logic
 *   [x] Google Gemini 1.5 Flash Integration for Summary/Sentiment
