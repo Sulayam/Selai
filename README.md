@@ -12,17 +12,19 @@ Selai opens with a high-impact **Landing Page** designed to explain the complex 
 *   **Value Proposition:** Clear explanation of how Selai filters noise and delivers only interested leads.
 *   **One-Click Launch:** Seamless transition from the marketing page to the live dashboard.
 
-![Selai Landing Page](https://via.placeholder.com/800x450/0f172a/e2e8f0?text=Insert+Screenshot+of+Selai+Landing+Page+Here)
+<img width="1183" height="608" alt="image" src="https://github.com/user-attachments/assets/df024a3c-44ab-4b95-a052-ba429652c538" />
 
 ### 2. The Command Center
 The heartbeat of the operation. Watch as your AI agents dial, pitch, and negotiate in real-time. Colors indicate status (Yellow: Dialing, Blue: Speaking, Green: Transferring).
 
-![Command Center](https://via.placeholder.com/800x450/0f172a/e2e8f0?text=Insert+Screenshot+of+Command+Center+Here)
+<img width="1183" height="527" alt="image" src="https://github.com/user-attachments/assets/a4e479ad-f713-4ba1-bc49-3e95518cc6ff" />
 
 ### 3. The Active Workspace
 When a human accepts a call, this workspace triggers. It displays the CRM data on the left, the live transcript in the center, and **Gemini's Real-time Analysis** on the right—coaching the user on how to close the deal.
 
-![Active Workspace](https://via.placeholder.com/800x450/0f172a/e2e8f0?text=Insert+Screenshot+of+Active+Workspace+Here)
+<img width="1181" height="652" alt="Screenshot 2026-04-23 at 3 13 57 PM" src="https://github.com/user-attachments/assets/5ff593e1-4172-403f-a930-4583e9954b70" />
+
+<img width="1170" height="757" alt="Screenshot 2026-04-23 at 3 15 43 PM" src="https://github.com/user-attachments/assets/741681a8-2179-42f2-914e-51cd50bec417" />
 
 ---
 
